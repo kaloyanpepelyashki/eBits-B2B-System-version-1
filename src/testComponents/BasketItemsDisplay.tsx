@@ -12,7 +12,6 @@ type BasketItemsDisplayPropsType = {
     product: BasketProductObjectType
     handleRemoveProduct: any
 }
-
 export default function BasketProductsDisplayTest() {
     return (
         <>

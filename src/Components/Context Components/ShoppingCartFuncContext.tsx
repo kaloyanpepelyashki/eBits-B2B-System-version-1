@@ -16,10 +16,6 @@ export const ShoppingCartProvider = (props: any) => {
     )
     const [isKit, setIsKit] = useState(false)
     const [kitAmount, setKitAmount] = useState(1)
-    const [typeOfQuerry, setTypeOfQuerry] = useState(0)
-    const [kitName, setKitName] = useState('')
-    const [kitDescription, setKitDescription] = useState('')
-    const [exportRights, setExportRights] = useState('')
 
     let total: number = 0
     cartProducts.map(
@@ -228,8 +224,6 @@ export const ShoppingCartProvider = (props: any) => {
                 kitAmount,
                 setKitAmount,
                 total,
-                typeOfQuerry,
-                setTypeOfQuerry,
             }}
         >
             {props.children}

@@ -37,6 +37,4 @@ export type ShoppingCartFuncContextType = {
     kitAmount: number
     setKitAmount: React.Dispatch<React.SetStateAction<number>>
     total: number
-    typeOfQuerry: number
-    setTypeOfQuerry: React.Dispatch<React.SetStateAction<number>>
 }

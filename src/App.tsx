@@ -20,6 +20,7 @@ import ProductSelectionPage from './Pages/ProductSelectionPage'
 import HeaderBar from './Components/Global Components/HeaderBar'
 import { ContactInfoContProvider } from './Components/Context Components/ContactsInformationContext'
 import ContactInfoPage from './Pages/ContactsPage'
+import OutroPage from './Pages/OutroPage'
 
 function App() {
     //*Fetching data from the server
@@ -68,6 +69,7 @@ function App() {
                                 path="/contact-info"
                                 element={<ContactInfoPage />}
                             />
+                            <Route path="/outro" element={<OutroPage />} />     
                         </Routes>
                     </ContactInfoContProvider>
                 </ShoppingCartProvider>
