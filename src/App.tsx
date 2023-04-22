@@ -69,7 +69,7 @@ function App() {
                                 path="/contact-info"
                                 element={<ContactInfoPage />}
                             />
-                            <Route path="/outro" element={<OutroPage />} />     
+                            <Route path="/outro" element={<OutroPage />} />
                         </Routes>
                     </ContactInfoContProvider>
                 </ShoppingCartProvider>

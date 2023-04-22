@@ -1,5 +1,5 @@
 //Importing React hooks
-import { useContext } from 'react'
+import { useContext, ChangeEvent } from 'react'
 
 //Importing Context components
 import { ShoppingCartFunc } from '../Context Components/ShoppingCartFuncContext'
@@ -7,7 +7,7 @@ import { ShoppingCartFunc } from '../Context Components/ShoppingCartFuncContext'
 export default function PageLeftTopSection(props: any) {
     const { isKit, setIsKit } = useContext(ShoppingCartFunc)
 
-    const handleCheck = (e: any) => {
+    const handleCheck = (e: ChangeEvent<HTMLInputElement>) => {
         setIsKit(e.target.checked)
     }
 
@@ -23,8 +23,8 @@ export default function PageLeftTopSection(props: any) {
                 <h1
                     className={
                         isKit
-                            ? 'text-TextMid text-primary-color -ml-10 cursor-default'
-                            : 'text-TextMid text-txt-grey-color -ml-10 cursor-default'
+                            ? 'text-TextMid text-primary-color -ml-3 cursor-default'
+                            : 'text-TextMid text-txt-grey-color -ml-3 cursor-default'
                     }
                 >
                     Kit

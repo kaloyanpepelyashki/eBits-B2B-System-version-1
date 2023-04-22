@@ -1,8 +1,9 @@
 //Importing React-router elements and components
-import { useNavigate, To } from 'react-router'
+import { MouseEventHandler } from 'react'
+import { useNavigate, To, NavigateFunction } from 'react-router'
 
 type ButtonsHolderPropsType = {
-    handleTransfer: any
+    handleTransfer?: MouseEventHandler<HTMLButtonElement> | undefined
     title?: string
     backDest?: To
     backTitle?: string
@@ -12,6 +13,8 @@ export default function ButtonsHolder(props: ButtonsHolderPropsType) {
     const navigate = useNavigate()
 
     const { handleTransfer, title, backDest, backTitle } = props
+
+    const name: string = 'Kons'
 
     return (
         <>

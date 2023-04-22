@@ -61,9 +61,8 @@ export default function ContactInfoPage() {
                         <ReceiptHandler />
                     </div>
                 </div>
-                
-                    <ButtonsHolder handleTransfer={handleTransfer} />
-                
+
+                <ButtonsHolder handleTransfer={handleTransfer} />
             </main>
         </>
     )

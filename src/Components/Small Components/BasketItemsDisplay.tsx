@@ -28,8 +28,8 @@ export default function BasketProductsDisplay(
             </>
         )
     }
-    (() => {
-        console.log("IIFE")
+    ;(() => {
+        console.log('IIFE')
     })()
     return (
         <>

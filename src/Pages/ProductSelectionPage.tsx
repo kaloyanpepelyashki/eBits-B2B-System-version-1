@@ -28,18 +28,21 @@ export default function ProductSelectionPage(
 
     const navigate = useNavigate()
 
-    const { cartProducts, kitAmount } = useContext(ShoppingCartFunc)
+    const { cartProducts, kitAmount, isKit } = useContext(ShoppingCartFunc)
 
     const handleTransfer = () => {
-        if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
-            navigate('/BuyorExport')
-        }
-        if (kitAmount <= 0) {
-            window.alert('Kit Amount cannot be 0')
-        }
-        if (cartProducts.filter((product) => product.qty !== 0).length == 0) {
-            window.alert('Please add products to the basket')
-        }
+        //*! Disabled while testing */
+        // if (cartProducts.filter((product) => product.qty !== 0).length !== 0) {
+        //     navigate('/contact-info')
+        // }
+        // if (isKit && kitAmount <= 0) {
+        //     window.alert('Kit Amount cannot be 0')
+        // }
+        // if (cartProducts.filter((product) => product.qty !== 0).length == 0) {
+        //     window.alert('Please add products to the basket')
+        // }
+
+        navigate('/contact-info')
     }
     return (
         <>
