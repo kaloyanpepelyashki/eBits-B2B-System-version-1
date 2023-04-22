@@ -9,29 +9,38 @@ export type ContactsInfoContextType = {
 }
 
 export interface ContactInfoState {
-    name: string
-    lastName: string
-    email: string
-    phone: number
-    street: string
-    houseNumber: number
-    postNumber: number
-    town: string
-    deliveryDate: string
-    notes: string
+    name: initialStateStringValue
+    lastName: initialStateStringValue
+    email: initialStateStringValue
+    phone: initialStateNumericValue
+    street: initialStateStringValue
+    houseNumber: initialStateNumericValue
+    postNumber: initialStateNumericValue
+    town: initialStateStringValue
+    deliveryDate: initialStateStringValue
+    notes: initialStateStringValue
+}
+
+type initialStateStringValue = {
+    value: string
+    hasError: boolean
+}
+type initialStateNumericValue = {
+    value: number
+    hasError: boolean
 }
 
 export interface FormInitialState {
-    name: string
-    lastName: string
-    email: string
-    phone: number
-    street: string
-    houseNumber: number
-    postNumber: number
-    town: string
-    deliveryDate: string
-    notes: string
+    name: initialStateStringValue
+    lastName: initialStateStringValue
+    email: initialStateStringValue
+    phone: initialStateNumericValue
+    street: initialStateStringValue
+    houseNumber: initialStateNumericValue
+    postNumber: initialStateNumericValue
+    town: initialStateStringValue
+    deliveryDate: initialStateStringValue
+    notes: initialStateStringValue
 }
 
 export interface ContactInfoAction {

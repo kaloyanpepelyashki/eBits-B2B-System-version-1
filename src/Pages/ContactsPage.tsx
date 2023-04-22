@@ -1,5 +1,5 @@
 //Importin React hooks
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 //Importing React-router elements and components
 import { useLocation, useNavigate } from 'react-router'
@@ -13,46 +13,35 @@ import ButtonsHolder from '../Components/Global Components/ButtonsHolderComponen
 
 import ReceiptHandler from '../Components/Global Components/ReceiptHandler'
 import PageLeftSideStaticContacts from '../Components/Small Components/PageLeftSideStaticContacts'
+import { AlertDialogEndOrder } from '../Components/Small Components/Atomic Components/AlertEndOfOrder'
 
 export default function ContactInfoPage() {
     const { contactInfoState } = useContext(ContactsInformationFunc)
-    const { typeOfQuerry } = useContext(ShoppingCartFunc)
+
+    const [openDialog, setOpenDialog] = useState(true)
 
     const navigate = useNavigate()
 
     const handleTransfer = () => {
-        if (typeOfQuerry === 2) {
-            if (!contactInfoState.Name) {
-                window.alert('Please tell us your name')
-            }
-            if (!contactInfoState.lastName) {
-                window.alert('Please tell us your last name')
-            }
-            if (!contactInfoState.email) {
-                window.alert('Please tell us your email')
-            }
-            if (!contactInfoState.phone) {
-                window.alert('Please tell us your phone')
+        Object.keys(contactInfoState).map((key) => {
+            if (!contactInfoState[key] && contactInfoState[key].length <= 0) {
+                window.alert(`Please provide us with ${key}`)
+                contactInfoState[key].hasError = true;
             } else {
-                navigate('/finalChackPage')
+                setOpenDialog(true)
             }
-        }
-        if (typeOfQuerry === 1) {
-            Object.keys(contactInfoState).map((key) => {
-                if (
-                    !contactInfoState[key] &&
-                    contactInfoState[key].length <= 0
-                ) {
-                    window.alert(`Please provide us with ${key}`)
-                } else {
-                    navigate('/finalChackPage')
-                }
-            })
-        }
+        })
+
+        console.log(contactInfoState)
     }
+
 
     return (
         <>
+            <AlertDialogEndOrder
+                openDialog={openDialog}
+                setOpenDialog={setOpenDialog}
+            />
             <main className="contact-info-page-main-content-wrapper page-main-section">
                 <div className="contact-info-page-inner-content">
                     <div className="contact-info-page-widgets-holder page-widgets-holder ">

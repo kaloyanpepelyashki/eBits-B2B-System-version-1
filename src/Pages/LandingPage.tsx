@@ -3,11 +3,11 @@ import { useState } from 'react'
 
 //Importing React-router elements, components and hooks
 import { useNavigate } from 'react-router'
-import ButtonsHolder from '../Components/Global Components/ButtonsHolderComponent'
 
 //Importing libraries
 
 //Importing components
+import ButtonsHolder from '../Components/Global Components/ButtonsHolderComponent'
 
 export default function LandingPage() {
     const navigate = useNavigate()
