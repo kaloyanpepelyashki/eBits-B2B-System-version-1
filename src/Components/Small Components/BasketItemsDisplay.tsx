@@ -28,9 +28,6 @@ export default function BasketProductsDisplay(
             </>
         )
     }
-    ;(() => {
-        console.log('IIFE')
-    })()
     return (
         <>
             <div className="item-display-basket">

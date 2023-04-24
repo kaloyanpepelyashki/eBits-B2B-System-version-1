@@ -794,6 +794,40 @@ input[type='number']::-moz-outer-spin-button {
     }
 }
 
+.contact-info-page-error-alert {
+    width: 40%;
+    top: 11%;
+    left: 30%;
+}
+.contact-info-page-error-alert {
+    -webkit-animation: slide-in-top 0.3s ease-in both;
+    animation: slide-in-top 0.3s ease-in both;
+}
+
+@-webkit-keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 /***  <==== === ! | OUTRO PAGE | ! === ====>  ***/
 
 .outro-page-content-wrapper {

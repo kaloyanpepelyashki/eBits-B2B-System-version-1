@@ -12,6 +12,8 @@ export default function PageLeftSideStaticContacts() {
 
     const {
         contactInfoState,
+        formValidation,
+
         getContactInfoFuncs: {
             handleNameChange,
             handleLastNameChange,
@@ -24,6 +26,16 @@ export default function PageLeftSideStaticContacts() {
             handleNotesChange,
             handleDeliveryDateChange,
         },
+        getContactInfoValidationFuncs: {
+            handleNameValidation,
+            handleLastNameValidation,
+            handleEmailValidation,
+            handlePhoneValidation,
+            handleStreetValidation,
+            handleHouseNumberValidation,
+            handlePostNumberValidation,
+            handleTownValidation,
+        },
         value,
         setValue,
     } = useContext(ContactsInformationFunc)
@@ -34,105 +46,172 @@ export default function PageLeftSideStaticContacts() {
     }
     return (
         <>
-        //! Make the missing fields of the form turn red when the user presses "Next"
+            {/* //! Make the missing fields of the form turn red when the user presses "Next" */}
             <div
                 className="page-left-side-contacts-wrapper page-left-side-wrapper bg-white border-white rounded-sm text-sm shadow-2xl
       focus:outline-none"
             >
-                {/* For mobile screens, display the columns as a stack */}
+
+                {/** //?? <===== ! | START OF CONTACTS FORM | ! =====> */}
+
                 <div className="page-left-side-contacts-column page-left-side-contacts-left-column">
+                    {/* //?? CONTACTS FORM LEFT COLUMN */}
+
                     <div className="address-contact-info-block">
                         <p className="contacts-page-heading text-primary-color text-HeadingSmall">
                             Contact Details
                         </p>
 
-                        {/*<=== | THIS IS TO REMAIN AS IT IS NOW | ===> */}
-
                         <input
+                            style={{
+                                border: formValidation.nameHasError
+                                    ? '1px solid red'
+                                    : ' ',
+                            }}
                             type="text"
-                            className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                            className="contacts-page-input-field pl-2 py-1.5 bg-white rounded-sm text-sm shadow-md
             focus:outline-none"
                             value={contactInfoState.name.value}
-                            placeholder="Name"
+                            placeholder="* Name..."
                             onChange={handleNameChange}
+                            onBlur={handleNameValidation}
                             required
                         />
                         <input
+                            style={{
+                                border: formValidation.lastNameHasError
+                                    ? '1px solid red'
+                                    : ' ',
+                            }}
                             type="text"
                             className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
             focus:outline-none"
                             value={contactInfoState.lastName.value}
-                            placeholder="Last Name"
+                            placeholder="* Last Name..."
                             onChange={handleLastNameChange}
+                            onBlur={handleLastNameValidation}
                             required
                         />
 
-                        <div className="contacts-page-small-inputs-holder">
+                        <>
+                            {formValidation.emailFormattHasError ? (
+                                <p className="text-TextSMALLXS text-txt-red">
+                                    Please provide a valid email{' '}
+                                </p>
+                            ) : (
+                                ' '
+                            )}
                             <input
+                                style={{
+                                    border: formValidation.emailHasError
+                                        ? '1px solid red'
+                                        : ' ',
+                                }}
                                 type="email"
                                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
-              focus:outline-none"
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+            focus:outline-none"
                                 value={contactInfoState.email.value}
-                                placeholder="Email"
+                                placeholder="* Email..."
                                 onChange={handleEmailChange}
+                                onBlur={handleEmailValidation}
                                 required
                             />
+                        </>
+                        <>
+                            {formValidation.phoneFormattHasError ? (
+                                <p className="text-TextSMALLXS text-txt-red">
+                                    Please provide a valid phone number{' '}
+                                </p>
+                            ) : (
+                                ' '
+                            )}
                             <input
+                                style={{
+                                    border: formValidation.phoneHasError
+                                        ? '1px solid red'
+                                        : ' ',
+                                }}
                                 inputMode="numeric"
                                 pattern="[0-9]*"
-                                className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
               focus:outline-none"
                                 value={contactInfoState.phone.value}
-                                placeholder="Phone"
+                                placeholder="* Phone..."
                                 onChange={handlePhoneChange}
+                                onBlur={handlePhoneValidation}
                                 required
                             />
-                        </div>
+                        </>
                     </div>
 
-                    {/* <--- | ADDRESS INFO | ---> */}
+                    {/* //?? <--- | ADDRESS INFO | ---> */}
+
                     <div className="address-contact-info-block">
                         <p className="contacts-page-heading text-primary-color text-HeadingSmall">
                             Address Details
                         </p>
 
                         <input
+                            style={{
+                                border: formValidation.streetHasError
+                                    ? '1px solid red'
+                                    : ' ',
+                            }}
                             type="text"
                             className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
             focus:outline-none"
                             value={contactInfoState.street.value}
-                            placeholder="Street"
+                            placeholder="* Street"
                             onChange={handleStreetChange}
+                            onBlur={handleStreetValidation}
                             required
                         />
                         <input
+                            style={{
+                                border: formValidation.houseNumberHasError
+                                    ? '1px solid red'
+                                    : ' ',
+                            }}
                             type="text"
                             className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
             focus:outline-none"
                             value={contactInfoState.houseNumber.value}
-                            placeholder="House Number"
+                            placeholder="* House Number"
                             onChange={handleHouseNumberChange}
+                            onBlur={handleHouseNumberValidation}
                             required
                         />
                         <div className="contacts-page-small-inputs-holder ">
                             <input
+                                style={{
+                                    border: formValidation.postNumberHasError
+                                        ? '1px solid red'
+                                        : ' ',
+                                }}
                                 inputMode="numeric"
                                 pattern="[0-9]*"
                                 className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
-              focus:outline-none"
+            focus:outline-none"
                                 value={contactInfoState.postNumber.value}
-                                placeholder="Post number"
+                                placeholder="* Post number"
                                 onChange={handlePostNumberChange}
+                                onBlur={handlePostNumberValidation}
                                 required
                             />
                             <input
+                                style={{
+                                    border: formValidation.townHasError
+                                        ? '1px solid red'
+                                        : ' ',
+                                }}
                                 type="text"
                                 className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-red border-slate-300 rounded-sm text-sm shadow-md
-              focus:outline-none"
+            focus:outline-none"
                                 value={contactInfoState.town.value}
-                                placeholder="Town"
+                                placeholder="* Town"
                                 onChange={handleTownChange}
+                                onBlur={handleTownValidation}
                                 required
                             />
                         </div>
@@ -140,7 +219,9 @@ export default function PageLeftSideStaticContacts() {
                 </div>
 
                 <div className="page-left-side-contacts-column page-left-side-contacts-right-column">
-                    <p className="contacts-page-heading text-primary-color text-HeadingSmall -mb-4">
+                    {/* //?? CONTACTS FORM LEFT COLUMN */}
+
+                    <p className="contacts-page-heading text-primary-color text-HeadingSmall ">
                         Delivery
                     </p>
                     <div
@@ -162,7 +243,7 @@ export default function PageLeftSideStaticContacts() {
                         />
                     </div>
                     <div className="notes-info-block">
-                        <p className="contacts-page-heading text-primary-color text-HeadingSmall -mb-1 mt-1">
+                        <p className="contacts-page-heading text-primary-color text-HeadingSmall -mb-1 mt-10">
                             Notes
                         </p>
                         <textarea
