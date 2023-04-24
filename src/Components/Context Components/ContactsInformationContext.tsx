@@ -85,7 +85,6 @@ export const ContactInfoContProvider: React.FC<
         notesHasError: false,
     }
 
-    
     const formValidityReducer = (
         state: FormValidationState,
         action: FormValidationAction
@@ -139,9 +138,7 @@ export const ContactInfoContProvider: React.FC<
             case 'VALIDATE_HOUSENUMBER':
                 let isHouseNumberValid: boolean = true
                 isHouseNumberValid =
-                    action.payload.houseNumber.length > 0
-                        ? true
-                        : false
+                    action.payload.houseNumber.length > 0 ? true : false
                 return { ...state, houseNumberHasError: !isHouseNumberValid }
 
             case 'VALIDATE_POSTNUMBER':

@@ -51,7 +51,6 @@ export default function PageLeftSideStaticContacts() {
                 className="page-left-side-contacts-wrapper page-left-side-wrapper bg-white border-white rounded-sm text-sm shadow-2xl
       focus:outline-none"
             >
-
                 {/** //?? <===== ! | START OF CONTACTS FORM | ! =====> */}
 
                 <div className="page-left-side-contacts-column page-left-side-contacts-left-column">

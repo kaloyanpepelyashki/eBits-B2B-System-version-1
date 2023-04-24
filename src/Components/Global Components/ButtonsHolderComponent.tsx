@@ -1,6 +1,6 @@
 //Importing React-router elements and components
 import { MouseEventHandler } from 'react'
-import { useNavigate, To, NavigateFunction } from 'react-router'
+import { useNavigate, To } from 'react-router'
 
 type ButtonsHolderPropsType = {
     handleTransfer?: MouseEventHandler<HTMLButtonElement> | undefined

@@ -35,7 +35,6 @@ export default function ContactInfoPage() {
     //The state that controlls the content of the error alert
     const [errorAlertState, setErrorAlertState] = useState(1)
 
-
     //TODO Examine if there are some problems with handling the form validation
     const handleTransfer = () => {
         handleNameValidation()
