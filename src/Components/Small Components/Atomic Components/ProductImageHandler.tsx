@@ -21,6 +21,7 @@ export default function ProductImageHandler(
 
     return (
         <img
+            aria-label="Thumbnail picture"
             className="w-10 h-10 object-contain"
             src={imgSrc ? imgSrc : fallBackURL}
             onError={onImageError}

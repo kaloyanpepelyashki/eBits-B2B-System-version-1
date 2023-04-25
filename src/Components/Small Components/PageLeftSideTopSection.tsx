@@ -15,6 +15,7 @@ export default function PageLeftTopSection(props: any) {
         <>
             <div className="page-left-side-top-section">
                 <input
+                    aria-label="Check-box kit"
                     type="checkbox"
                     className="bg-gray-50 border-grey-300 focus:ring-4 focus:ring-primary-color  h-6 w-6 rounded text-primary-color text-red-600"
                     onChange={(e) => handleCheck(e)}

@@ -8,7 +8,10 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { ShoppingCartFunc } from '../Context Components/ShoppingCartFuncContext'
 
 //Importing types and interfaces
-import { RawProductObjectType, BasketProductObjectType } from '../../Types/ShoppingCartTypes'
+import {
+    RawProductObjectType,
+    BasketProductObjectType,
+} from '../../Types/ShoppingCartTypes'
 
 //Importing Components
 import ProductSearchBar from '../Small Components/ProductDisplaySearchBar'
@@ -46,10 +49,10 @@ export default function PageLeftSide(props: any) {
     filterFunc =
         searchQuerry !== ' '
             ? productsList.filter((product: RawProductObjectType) =>
-                product.ProductName.toLowerCase().includes(
-                    searchQuerry.toLowerCase()
-                )
-            )
+                  product.ProductName.toLowerCase().includes(
+                      searchQuerry.toLowerCase()
+                  )
+              )
             : ' '
 
     return (
@@ -66,6 +69,7 @@ export default function PageLeftSide(props: any) {
                     {/* <= //The input field the user types in */}
                     <div className="page-left-side-search-bar-icon-wrapper">
                         <input
+                            aria-label="Search bar"
                             className="page-left-side-search-bar block px-8 py-2 pr-80 bg-white border-white  rounded-sm text-sm shadow-md
                 focus:outline-none"
                             type="text"
@@ -80,14 +84,14 @@ export default function PageLeftSide(props: any) {
                     <div className="search-result-container-scroll">
                         {Array.isArray(filterFunc) && searchQuerry !== ''
                             ? filterFunc
-                                .slice(0, 6)
-                                .map((product) => (
-                                    <ProductSearchBar
-                                        product={product}
-                                        addProduct={handleAddProduct}
-                                        key={product.ProductIndex}
-                                    />
-                                ))
+                                  .slice(0, 6)
+                                  .map((product) => (
+                                      <ProductSearchBar
+                                          product={product}
+                                          addProduct={handleAddProduct}
+                                          key={product.ProductIndex}
+                                      />
+                                  ))
                             : ' '}
                     </div>
                 </div>

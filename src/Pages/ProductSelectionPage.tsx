@@ -10,7 +10,6 @@ import { ShoppingCartFunc } from '../Components/Context Components/ShoppingCartF
 //Importing types and interfaces
 import { ProductListModel } from '../Types/ShoppingCartTypes'
 
-
 //Importing Components
 import PageLeftSide from '../Components/Global Components/PageLeftSide'
 import PageLeftTopSection from '../Components/Small Components/PageLeftSideTopSection'
@@ -32,7 +31,11 @@ export default function ProductSelectionPage(
     const { cartProducts, kitAmount, isKit } = useContext(ShoppingCartFunc)
 
     const handleTransfer = () => {
-        if (cartProducts.filter((product) => product.qty !== 0 && product.Price !== 0).length !== 0) {
+        if (
+            cartProducts.filter(
+                (product) => product.qty !== 0 && product.Price !== 0
+            ).length !== 0
+        ) {
             navigate('/contact-info')
         }
         if (isKit && kitAmount <= 0) {
@@ -41,7 +44,6 @@ export default function ProductSelectionPage(
         if (cartProducts.filter((product) => product.qty !== 0).length == 0) {
             window.alert('Please add products to the basket')
         }
-
     }
     return (
         <>

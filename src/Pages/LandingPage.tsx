@@ -61,6 +61,7 @@ export default function LandingPage() {
                     </h1>
                     <div className="mt-4">
                         <input
+                            aria-label="Your email address"
                             className="email-input-field block px-3 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl focus:outline-none 
             md:mr-4 max-w-lg 2xl:max-w-xl"
                             type="text"
@@ -76,7 +77,10 @@ export default function LandingPage() {
                             </p>
                         )}
                     </div>
-                    <button className="form-btn bg-primary-color mt-8 py-1 px-6 rounded-sm">
+                    <button
+                        aria-label="Request email"
+                        className="form-btn bg-primary-color mt-8 py-1 px-6 rounded-sm"
+                    >
                         Send
                     </button>
                 </div>

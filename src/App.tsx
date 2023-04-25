@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 //Importing React-router elements and components
-import { Navigate, Route, Routes } from 'react-router'
+import { Route, Routes } from 'react-router'
 
 //Importing Context Components
 import { ShoppingCartProvider } from './Components/Context Components/ShoppingCartFuncContext'

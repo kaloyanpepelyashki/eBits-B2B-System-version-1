@@ -52,6 +52,7 @@ export default function BasketProductsDisplay(
                         <div className="flex items-center">
                             <ProductAmountHandler product={product} />
                             <FontAwesomeIcon
+                                aria-label="Delete"
                                 icon={faTrash}
                                 className="trash-icon final-check-product-icon"
                                 onClick={() => {

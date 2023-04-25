@@ -21,6 +21,7 @@ export default function ButtonsHolder(props: ButtonsHolderPropsType) {
             <div className="buttons-holder">
                 <div className="buttons-holder-inner">
                     <button
+                        aria-label="Forward"
                         className="btn-holder-back text-GlobalBtnsTxt font-semibold mx-5"
                         onClick={() =>
                             backDest ? navigate(backDest) : navigate(-1)
@@ -29,6 +30,7 @@ export default function ButtonsHolder(props: ButtonsHolderPropsType) {
                         &lt; {backTitle ? backTitle : 'Back'}
                     </button>
                     <button
+                        aria-label="Back"
                         className="btn-holder-next bg-primary-color rounded-sm text-GlobalBtnsTxt font-normal mx-5"
                         onClick={handleTransfer}
                     >

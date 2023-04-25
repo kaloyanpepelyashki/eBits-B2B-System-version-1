@@ -10,7 +10,6 @@ import { BasketProductObjectType } from '../../Types/ShoppingCartTypes'
 //Importing Components
 import ProductDisplayReceipt from '../Small Components/ProductDisplayReceipt'
 
-
 type ReceiptPropsType = {
     children: any
 }
