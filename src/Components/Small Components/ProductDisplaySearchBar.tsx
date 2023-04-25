@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 //Importing Font Awesome and Font Awesome components
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
-import { faCircleQuestion as farFaCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 
 //Importing types and interfaces
 import { RawProductObjectType } from '../../Types/ShoppingCartTypes'
@@ -22,7 +21,7 @@ export default React.memo(function ProductSearchBar({
         ProductName: '',
         ProductIndex: 0,
         VariationName: product.ProductName,
-        VariationID: '',
+        VariationID: 0,
         Price: 0,
         Description: '',
     })
@@ -53,6 +52,7 @@ export default React.memo(function ProductSearchBar({
                 }),
             })
             const data = await response.json()
+            console.log(data)
             setVariationAndPrice(data)
         }
         varPostRequest()
@@ -60,12 +60,13 @@ export default React.memo(function ProductSearchBar({
     ////
     //////
 
+    console.log(variationAndPrice)
     //Sets the variable that is to hold the variation information
     let value: RawProductObjectType = {
         ProductName: '',
         ProductIndex: 0,
         VariationName: product.ProductName,
-        VariationID: '',
+        VariationID: 0,
         Price: 0,
         Description: '',
     }
@@ -100,14 +101,21 @@ export default React.memo(function ProductSearchBar({
         if (
             !productWithVar.VariationName &&
             (!productWithVar.Price || productWithVar.Price == 0) &&
-            productWithVar.VariationName !== 'select a variation'
+            productWithVar.VariationName !== 'select product'
         ) {
             //If there is no selected variation and there are variations in the list, it pushes a window alert
             window.alert('Please selct a variation')
         }
-        if (productWithVar.VariationName == 'select a variation') {
+        if (productWithVar.VariationName.toLowerCase() == 'select product') {
             window.alert('Please select a valid choice')
-        } else {
+        }
+        if (productWithVar.Price <= 0) {
+            return
+        } else if (
+            productWithVar.VariationName &&
+            productWithVar.VariationName.toLowerCase() !== 'select product' &&
+            productWithVar.Price > 0
+        ) {
             addProduct(productWithVar)
         }
     }
@@ -124,7 +132,7 @@ export default React.memo(function ProductSearchBar({
                         className="product-search-bar-select product-search-bar text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round mr-6"
                     >
                         <option>Select Product</option>
-                        {variationAndPrice.length !== 0 ? (
+                        {variationAndPrice ? (
                             variationAndPrice.map((variation) => (
                                 <option
                                     key={variation.VariationID}

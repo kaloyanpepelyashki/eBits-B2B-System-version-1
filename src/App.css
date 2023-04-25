@@ -114,6 +114,19 @@ img {
     color: rgb(136, 136, 136);
 }
 
+/** <--- --- | PRODUCT AMOUNT HANDLER COMPONENT STYLING | --- ---> */
+
+.direct-amount-input-amounnt-handler {
+    height: 25px;
+    font-size: 10pt;
+    text-align: center;
+}
+.direct-amount-input-amounnt-handler::-webkit-outer-spin-button,
+.direct-amount-input-amounnt-handler::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 /** <--- --- | PAGE LEFT SIDE BASKET ITEM DISPLAY COMPONENT STYLING | --- ---> */
 
 /** <--- --- | PAGE LEFT SIDE KIT TOP SECTION COMPONENT STYLING | --- ---> */
@@ -463,6 +476,16 @@ input[type='number']::-moz-outer-spin-button {
     overflow-x: hidden;
     overflow-y: auto;
 }
+.basket-scroll-section::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #c4c4c4;
+    border-radius: 5px;
+}
+.basket-scroll-section::-webkit-scrollbar-thumb {
+    background-color: #551c50;
+    border-radius: 5px;
+}
 
 @media only screen and (max-width: 1024px) {
     .page-left-side-wrapper {
@@ -607,6 +630,16 @@ input[type='number']::-moz-outer-spin-button {
     flex-direction: column;
     overflow-x: hidden;
     overflow-y: auto;
+}
+.scroll-section::-webkit-scrollbar {
+    width: 7px;
+    height: 10px;
+    background-color: #c4c4c4;
+    border-radius: 5px;
+}
+.scroll-section::-webkit-scrollbar-thumb {
+    background-color: #551c50;
+    border-radius: 5px;
 }
 
 /** <--- --- |PRODUCT DISPLAY IN RECEIPT COMPONENT STYLING | --- ---> */
@@ -794,6 +827,40 @@ input[type='number']::-moz-outer-spin-button {
     }
 }
 
+.contact-info-page-error-alert {
+    width: 40%;
+    top: 11%;
+    left: 30%;
+}
+.contact-info-page-error-alert {
+    -webkit-animation: slide-in-top 0.3s ease-in both;
+    animation: slide-in-top 0.3s ease-in both;
+}
+
+@-webkit-keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(-1000px);
+        transform: translateY(-1000px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 /***  <==== === ! | OUTRO PAGE | ! === ====>  ***/
 
 .outro-page-content-wrapper {

@@ -50,7 +50,7 @@ export default function ProductAmountHandler(
                 </button>
                 <input
                     type="number"
-                    className="final-check-product-table-price direct-amount-input-amounnt-handler w-12 mt-1 mx-2 "
+                    className="direct-amount-input-amounnt-handler w-12 mt-1 mx-2 "
                     value={product.qty}
                     onChange={(e) =>
                         handleUserDirectInput(product, Number(e.target.value))

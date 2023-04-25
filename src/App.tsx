@@ -1,5 +1,5 @@
 //Importing React Hooks
-import { useEffect, useState, Dispatch, FunctionComponent } from 'react'
+import { useEffect, useState } from 'react'
 
 //Importing React-router elements and components
 import { Navigate, Route, Routes } from 'react-router'
@@ -7,6 +7,7 @@ import { Navigate, Route, Routes } from 'react-router'
 //Importing Context Components
 import { ShoppingCartProvider } from './Components/Context Components/ShoppingCartFuncContext'
 
+//Importing types and interfaces
 import { ProductListModel } from './Types/ShoppingCartTypes'
 
 //Importing MUI elements, dependencies and components
@@ -44,6 +45,7 @@ function App() {
         fetchData()
     }, [])
 
+    console.log(productsList)
     //
     ////
     //////

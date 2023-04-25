@@ -9,7 +9,9 @@ import {
     ContactsInfoContextType,
     ContactInfoState,
     FormInitialState,
+    FormValidationState,
     ContactInfoAction,
+    FormValidationAction,
 } from '../../Types/ContactInfoTypes'
 
 import dayjs from 'dayjs'
@@ -25,11 +27,10 @@ type ContactInfoContProviderPropsType = {
 export const ContactInfoContProvider: React.FC<
     ContactInfoContProviderPropsType
 > = (props) => {
-    //!
-    //!!! Find out why it doesn' add the hasError and value to the object
-    //!
-
-    function reducer(state: ContactInfoState, action: ContactInfoAction) {
+    function reducer(
+        state: ContactInfoState,
+        action: ContactInfoAction
+    ): ContactInfoState {
         switch (action.type) {
             case 'UPDATE_NAME':
                 return { ...state, name: action.payload }
@@ -57,19 +58,118 @@ export const ContactInfoContProvider: React.FC<
     }
 
     const formInitialState: FormInitialState = {
-        name: { value: '', hasError: false },
-        lastName: { value: '', hasError: false },
-        email: { value: '', hasError: false },
-        phone: { value: 0, hasError: false },
-        street: { value: '', hasError: false },
-        houseNumber: { value: 0, hasError: false },
-        postNumber: { value: 0, hasError: false },
-        town: { value: '', hasError: false },
-        deliveryDate: { value: '', hasError: false },
-        notes: { value: '', hasError: false },
+        name: '',
+        lastName: '',
+        email: '',
+        phone: 0,
+        street: '',
+        houseNumber: '',
+        postNumber: 0,
+        town: '',
+        deliveryDate: '',
+        notes: '',
     }
 
-    const [contactInfoState, dispatch] = useReducer(reducer, formInitialState)
+    const formValidationState: FormValidationState = {
+        nameHasError: false,
+        lastNameHasError: false,
+        emailHasError: false,
+        emailFormattHasError: false,
+        phoneHasError: false,
+        phoneFormattHasError: false,
+        streetHasError: false,
+        houseNumberHasError: false,
+        postNumberHasError: false,
+        townHasError: false,
+        deliveryDateHasError: false,
+        notesHasError: false,
+    }
+
+    const formValidityReducer = (
+        state: FormValidationState,
+        action: FormValidationAction
+    ): FormValidationState => {
+        switch (action.type) {
+            case 'VALIDATE_NAME':
+                let isNameValid: boolean = true
+                isNameValid = action.payload.name.length > 0 ? true : false
+                return { ...state, nameHasError: !isNameValid }
+
+            case 'VALIDATE_LAST_NAME':
+                let isLastNameValid: boolean = true
+                isLastNameValid =
+                    action.payload.lastName.length > 0 ? true : false
+                return { ...state, lastNameHasError: !isLastNameValid }
+
+            case 'VALIDATE_EMAIL':
+                let isEmailValid: boolean = true
+                let isEmailFromatValid: boolean = true
+                isEmailValid = action.payload.email.length > 0 ? true : false
+                isEmailFromatValid = action.payload.email.includes('@')
+                    ? true
+                    : false
+                return {
+                    ...state,
+                    emailHasError: !isEmailValid,
+                    emailFormattHasError: !isEmailValid
+                        ? isEmailFromatValid
+                        : !isEmailFromatValid,
+                }
+
+            case 'VALIDATE_PHONE':
+                let isPhoneValid: boolean = true
+                let isPhoneFormattValid: boolean = true
+                isPhoneFormattValid = !isNaN(action.payload.phone)
+                    ? true
+                    : false
+                isPhoneValid =
+                    action.payload.phone.toString.length > 0 ? true : false
+                return {
+                    ...state,
+                    phoneHasError: isPhoneValid,
+                    phoneFormattHasError: !isPhoneFormattValid,
+                }
+
+            case 'VALIDATE_STREET':
+                let isStreetValid: boolean = true
+                isStreetValid = action.payload.street.length > 0 ? true : false
+                return { ...state, streetHasError: !isStreetValid }
+
+            case 'VALIDATE_HOUSENUMBER':
+                let isHouseNumberValid: boolean = true
+                isHouseNumberValid =
+                    action.payload.houseNumber.length > 0 ? true : false
+                return { ...state, houseNumberHasError: !isHouseNumberValid }
+
+            case 'VALIDATE_POSTNUMBER':
+                let isPostNumberValid: boolean = true
+                isPostNumberValid =
+                    action.payload.postNumber.toString.length > 0 ? true : false
+                return { ...state, postNumberHasError: isPostNumberValid }
+
+            case 'VALIDATE_TOWN':
+                let isTownValid: boolean = true
+                isTownValid = action.payload.town.length > 0 ? true : false
+                return { ...state, townHasError: !isTownValid }
+
+            case 'VALIDATE_DELIVERY_DATE':
+                let isDeliveryDateValid: boolean = true
+                isDeliveryDateValid =
+                    action.payload.deliveryDate.length > 0 ? true : false
+                return { ...state, deliveryDateHasError: !isDeliveryDateValid }
+            default:
+                return state
+        }
+    }
+
+    const [contactInfoState, dispatch] = useReducer<
+        (arg1: FormInitialState, actions: ContactInfoAction) => FormInitialState
+    >(reducer, formInitialState)
+
+    const [formValidation, formValidationDispatch] = useReducer(
+        formValidityReducer,
+        formValidationState
+    )
 
     const todayDate = new Date()
     todayDate.setDate(todayDate.getDate() + 14)
@@ -98,7 +198,10 @@ export const ContactInfoContProvider: React.FC<
         },
 
         handleHouseNumberChange: (e: ChangeEvent<HTMLInputElement>) => {
-            dispatch({ type: 'UPDATE_HOUSENUMBER', payload: e.target.value })
+            dispatch({
+                type: 'UPDATE_HOUSENUMBER',
+                payload: e.target.value,
+            })
         },
 
         handlePostNumberChange: (e: ChangeEvent<HTMLInputElement>) => {
@@ -120,6 +223,60 @@ export const ContactInfoContProvider: React.FC<
             })
         },
     }
+    const getContactInfoValidationFuncs = {
+        handleNameValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_NAME',
+                payload: contactInfoState,
+            })
+        },
+
+        handleLastNameValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_LAST_NAME',
+                payload: contactInfoState,
+            })
+        },
+
+        handleEmailValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_EMAIL',
+                payload: contactInfoState,
+            })
+        },
+        handlePhoneValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_PHONE',
+                payload: contactInfoState,
+            })
+        },
+        handleStreetValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_STREET',
+                payload: contactInfoState,
+            })
+        },
+        handleHouseNumberValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_HOUSENUMBER',
+                payload: contactInfoState,
+            })
+        },
+
+        handlePostNumberValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_POSTNUMBER',
+                payload: contactInfoState,
+            })
+        },
+
+        handleTownValidation: () => {
+            formValidationDispatch({
+                type: 'VALIDATE_TOWN',
+                payload: contactInfoState,
+            })
+        },
+    }
 
     return (
         <ContactsInformationFunc.Provider
@@ -128,7 +285,10 @@ export const ContactInfoContProvider: React.FC<
                 formInitialState,
                 contactInfoState,
                 dispatch,
+                formValidation,
+                formValidationDispatch,
                 getContactInfoFuncs,
+                getContactInfoValidationFuncs,
                 value,
                 setValue,
             }}

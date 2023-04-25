@@ -9,7 +9,7 @@ import { BasketProductObjectType } from '../../Types/ShoppingCartTypes'
 
 //Importing Components
 import ProductDisplayReceipt from '../Small Components/ProductDisplayReceipt'
-import ProductDisplayReceiptTest from '../../testComponents/ProductDisplayReceipt'
+
 
 type ReceiptPropsType = {
     children: any
@@ -75,16 +75,6 @@ export default function Receipt(props: ReceiptPropsType) {
                                 ''
                             )
                         )}
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
-                        <ProductDisplayReceiptTest />
                     </div>
 
                     {isKit ? <div className="line line-3"></div> : ''}

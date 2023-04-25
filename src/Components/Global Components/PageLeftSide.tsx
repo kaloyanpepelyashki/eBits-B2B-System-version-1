@@ -8,16 +8,11 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { ShoppingCartFunc } from '../Context Components/ShoppingCartFuncContext'
 
 //Importing types and interfaces
-import {
-    RawProductObjectType,
-    BasketProductObjectType,
-} from '../../Types/ShoppingCartTypes'
+import { RawProductObjectType, BasketProductObjectType } from '../../Types/ShoppingCartTypes'
 
 //Importing Components
 import ProductSearchBar from '../Small Components/ProductDisplaySearchBar'
 import BasketProductsDisplay from '../Small Components/BasketItemsDisplay'
-import BasketProductsDisplayTest from '../../testComponents/BasketItemsDisplay'
-import ProductDisplaySearchBar from '../../testComponents/ProductDisplaySearchBar'
 
 export default function PageLeftSide(props: any) {
     const [searchQuerry, setSearchQuerry] = useState(' ')
@@ -51,20 +46,20 @@ export default function PageLeftSide(props: any) {
     filterFunc =
         searchQuerry !== ' '
             ? productsList.filter((product: RawProductObjectType) =>
-                  product.ProductName.toLowerCase().includes(
-                      searchQuerry.toLowerCase()
-                  )
-              )
+                product.ProductName.toLowerCase().includes(
+                    searchQuerry.toLowerCase()
+                )
+            )
             : ' '
 
     return (
         <>
             <div
                 className="page-left-side-wrapper block py-6 bg-white border-white border-slate-300 rounded-sm text-sm shadow-2xl
-                  focus:outline-none 
-                  sm:px-5 sm:py-3 sm:text-xs
-                  md:px-8 md:py-4 md:text-sm
-                  lg:px-12 lg:py-6 lg:text-base"
+                focus:outline-none 
+                sm:px-5 sm:py-3 sm:text-xs
+                md:px-8 md:py-4 md:text-sm
+                lg:px-12 lg:py-6 lg:text-base"
             >
                 {props.children}
                 <div className="page-left-side-main-section">
@@ -85,19 +80,15 @@ export default function PageLeftSide(props: any) {
                     <div className="search-result-container-scroll">
                         {Array.isArray(filterFunc) && searchQuerry !== ''
                             ? filterFunc
-                                  .slice(0, 6)
-                                  .map((product) => (
-                                      <ProductSearchBar
-                                          product={product}
-                                          addProduct={handleAddProduct}
-                                          key={product.ProductIndex}
-                                      />
-                                  ))
+                                .slice(0, 6)
+                                .map((product) => (
+                                    <ProductSearchBar
+                                        product={product}
+                                        addProduct={handleAddProduct}
+                                        key={product.ProductIndex}
+                                    />
+                                ))
                             : ' '}
-                        <ProductDisplaySearchBar />
-                        <ProductDisplaySearchBar />
-                        <ProductDisplaySearchBar />
-                        <ProductDisplaySearchBar />
                     </div>
                 </div>
                 <div className="line line-2"></div>
@@ -124,9 +115,6 @@ export default function PageLeftSide(props: any) {
                                     ''
                                 )
                             )}
-                            <BasketProductsDisplayTest />
-                            <BasketProductsDisplayTest />
-                            <BasketProductsDisplayTest />
                         </div>
                     </div>
                 </div>

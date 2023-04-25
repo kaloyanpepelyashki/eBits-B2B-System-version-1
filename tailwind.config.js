@@ -11,6 +11,7 @@ export default {
             'txt-grey-color': '#959595',
             'txt-black-color': '#000000',
             'txt-white-color': '#FFFFFF',
+            'txt-red': 'red',
             'selector-color': '#FBB124',
         },
         fontSize: {
@@ -22,6 +23,7 @@ export default {
             TextMidSmall: '17pt',
             TextSmall: '14pt',
             TextXS: '11pt',
+            TextSMALLXS: '9pt',
             TextXXS: '6pt',
             TextXXXS: '5pt',
             GlobalBtnsTxt: '15pt',

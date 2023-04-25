@@ -2,45 +2,58 @@ export type ContactsInfoContextType = {
     reducer: any
     formInitialState: any
     dispatch: any
+    formValidation: any
+    formValidationDispatch: any
     getContactInfoFuncs: any
+    getContactInfoValidationFuncs: any
     contactInfoState: any
     value: any
     setValue: any
 }
 
 export interface ContactInfoState {
-    name: initialStateStringValue
-    lastName: initialStateStringValue
-    email: initialStateStringValue
-    phone: initialStateNumericValue
-    street: initialStateStringValue
-    houseNumber: initialStateNumericValue
-    postNumber: initialStateNumericValue
-    town: initialStateStringValue
-    deliveryDate: initialStateStringValue
-    notes: initialStateStringValue
-}
-
-type initialStateStringValue = {
-    value: string
-    hasError: boolean
-}
-type initialStateNumericValue = {
-    value: number
-    hasError: boolean
+    name: string
+    lastName: string
+    email: string
+    phone: number
+    street: string
+    houseNumber: string
+    postNumber: number
+    town: string
+    deliveryDate: string
+    notes: string
 }
 
 export interface FormInitialState {
-    name: initialStateStringValue
-    lastName: initialStateStringValue
-    email: initialStateStringValue
-    phone: initialStateNumericValue
-    street: initialStateStringValue
-    houseNumber: initialStateNumericValue
-    postNumber: initialStateNumericValue
-    town: initialStateStringValue
-    deliveryDate: initialStateStringValue
-    notes: initialStateStringValue
+    name: string
+    lastName: string
+    email: string
+    phone: number
+    street: string
+    houseNumber: string
+    postNumber: number
+    town: string
+    deliveryDate: string
+    notes: string
+}
+export interface FormValidationState {
+    nameHasError: boolean
+    lastNameHasError: boolean
+    emailHasError: boolean
+    emailFormattHasError: boolean
+    phoneHasError: boolean
+    phoneFormattHasError: boolean
+    streetHasError: boolean
+    houseNumberHasError: boolean
+    postNumberHasError: boolean
+    townHasError: boolean
+    deliveryDateHasError: boolean
+    notesHasError: boolean
+}
+
+export interface FormValidationAction {
+    type: string
+    payload: FormInitialState
 }
 
 export interface ContactInfoAction {

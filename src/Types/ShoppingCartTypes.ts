@@ -9,7 +9,7 @@ export type RawProductObjectType = {
     Description: string
     Price: number
     ProductIndex: number
-    VariationID: string
+    VariationID: number
     VariationName: string
     ProductName: string
 }
