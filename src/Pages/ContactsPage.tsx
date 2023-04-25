@@ -26,7 +26,7 @@ export default function ContactInfoPage() {
         Object.keys(contactInfoState).map((key) => {
             if (!contactInfoState[key] && contactInfoState[key].length <= 0) {
                 window.alert(`Please provide us with ${key}`)
-                contactInfoState[key].hasError = true;
+                contactInfoState[key].hasError = true
             } else {
                 setOpenDialog(true)
             }
@@ -34,7 +34,6 @@ export default function ContactInfoPage() {
 
         console.log(contactInfoState)
     }
-
 
     return (
         <>

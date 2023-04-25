@@ -25,7 +25,6 @@ type ContactInfoContProviderPropsType = {
 export const ContactInfoContProvider: React.FC<
     ContactInfoContProviderPropsType
 > = (props) => {
-
     //!
     //!!! Find out why it doesn' add the hasError and value to the object
     //!
@@ -33,7 +32,7 @@ export const ContactInfoContProvider: React.FC<
     function reducer(state: ContactInfoState, action: ContactInfoAction) {
         switch (action.type) {
             case 'UPDATE_NAME':
-                return { ...state, name: action.payload, }
+                return { ...state, name: action.payload }
             case 'UPDATE_LASTNAME':
                 return { ...state, lastName: action.payload }
             case 'UPDATE_EMAIL':
@@ -58,16 +57,16 @@ export const ContactInfoContProvider: React.FC<
     }
 
     const formInitialState: FormInitialState = {
-        name: {value: "" , hasError: false,},
-        lastName: {value: "" , hasError: false,},
-        email: {value: "" , hasError: false,},
-        phone: {value: 0, hasError: false,},
-        street: {value: "" , hasError: false,},
-        houseNumber: {value: 0, hasError: false,},
-        postNumber: {value: 0, hasError: false,},
-        town: {value: "" , hasError: false,},
-        deliveryDate: {value: "" , hasError: false,},
-        notes: {value: "" , hasError: false,},
+        name: { value: '', hasError: false },
+        lastName: { value: '', hasError: false },
+        email: { value: '', hasError: false },
+        phone: { value: 0, hasError: false },
+        street: { value: '', hasError: false },
+        houseNumber: { value: 0, hasError: false },
+        postNumber: { value: 0, hasError: false },
+        town: { value: '', hasError: false },
+        deliveryDate: { value: '', hasError: false },
+        notes: { value: '', hasError: false },
     }
 
     const [contactInfoState, dispatch] = useReducer(reducer, formInitialState)

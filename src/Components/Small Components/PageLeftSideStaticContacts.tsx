@@ -34,7 +34,8 @@ export default function PageLeftSideStaticContacts() {
     }
     return (
         <>
-        //! Make the missing fields of the form turn red when the user presses "Next"
+            //! Make the missing fields of the form turn red when the user
+            presses "Next"
             <div
                 className="page-left-side-contacts-wrapper page-left-side-wrapper bg-white border-white rounded-sm text-sm shadow-2xl
       focus:outline-none"
