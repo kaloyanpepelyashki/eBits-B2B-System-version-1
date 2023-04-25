@@ -54,7 +54,10 @@ export default function PageLeftSideStaticContacts() {
 
                 <div className="page-left-side-contacts-column page-left-side-contacts-left-column">
                     {/* //?? CONTACTS FORM LEFT COLUMN */}
-                    <form aria-label="Contacts Information">
+                    <form
+                        className="contact-page-form"
+                        aria-label="Contacts Information"
+                    >
                         <div className="address-contact-info-block">
                             <h1 className="contacts-page-heading text-primary-color text-HeadingSmall">
                                 Contact Details
@@ -68,7 +71,7 @@ export default function PageLeftSideStaticContacts() {
                                 }}
                                 aria-label="Name"
                                 type="text"
-                                className="contacts-page-input-field pl-2 py-1.5 bg-white rounded-sm text-sm shadow-md
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                 value={contactInfoState.name}
                                 placeholder="* Name..."
@@ -84,7 +87,7 @@ export default function PageLeftSideStaticContacts() {
                                 }}
                                 aria-label="Last Name"
                                 type="text"
-                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                 value={contactInfoState.lastName}
                                 placeholder="* Last Name..."
@@ -110,7 +113,7 @@ export default function PageLeftSideStaticContacts() {
                                     aria-label="Email"
                                     type="email"
                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                    className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                    className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                     value={contactInfoState.email}
                                     placeholder="* Email..."
@@ -136,7 +139,7 @@ export default function PageLeftSideStaticContacts() {
                                     aria-label="Phone"
                                     inputMode="numeric"
                                     pattern="[0-9]*"
-                                    className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                    className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
               focus:outline-none"
                                     value={contactInfoState.phone}
                                     placeholder="* Phone..."
@@ -150,7 +153,10 @@ export default function PageLeftSideStaticContacts() {
 
                     {/* //?? <--- | ADDRESS INFO | ---> */}
 
-                    <form aria-label="Address Details">
+                    <form
+                        className="contact-page-form"
+                        aria-label="Address Details"
+                    >
                         <div className="address-contact-info-block">
                             <p className="contacts-page-heading text-primary-color text-HeadingSmall">
                                 Address Details
@@ -164,7 +170,7 @@ export default function PageLeftSideStaticContacts() {
                                 }}
                                 aria-label="Street address"
                                 type="text"
-                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                 value={contactInfoState.street}
                                 placeholder="* Street"
@@ -180,7 +186,7 @@ export default function PageLeftSideStaticContacts() {
                                 }}
                                 aria-label="House number"
                                 type="text"
-                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                 value={contactInfoState.houseNumber}
                                 placeholder="* House Number"
@@ -198,7 +204,7 @@ export default function PageLeftSideStaticContacts() {
                                     aria-label="Post number"
                                     inputMode="numeric"
                                     pattern="[0-9]*"
-                                    className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md
+                                    className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm focus:shadow-inner shadow-md
             focus:outline-none"
                                     value={contactInfoState.postNumber}
                                     placeholder="* Post number"
@@ -214,7 +220,7 @@ export default function PageLeftSideStaticContacts() {
                                     }}
                                     aria-label="Town"
                                     type="text"
-                                    className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-red border-slate-300 rounded-sm text-sm shadow-md
+                                    className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-red border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
             focus:outline-none"
                                     value={contactInfoState.town}
                                     placeholder="* Town"
@@ -236,34 +242,46 @@ export default function PageLeftSideStaticContacts() {
                     <div
                         className="delivery-date-info-block bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
           focus:outline-none"
-                        style={{ height: '320px', width: '300px' }}
                     >
-                        <DateCalendar
-                            style={{ height: '320px', width: '300px' }}
-                            aria-label="Date input"
-                            minDate={dayjs(todayDate)}
-                            displayWeekNumber={true}
-                            displayYearNumber={false}
-                            disablePast={true}
-                            views={['day']}
-                            value={value}
-                            data-value={contactInfoState.deliveryDate}
-                            onChange={(newValue) => handleCalendar(newValue)}
-                            required
-                        />
+                        <form
+                            className="contact-page-form"
+                            aria-label="Delivery date details"
+                        >
+                            <DateCalendar
+                                aria-label="Date input"
+                                minDate={dayjs(todayDate)}
+                                displayWeekNumber={true}
+                                displayYearNumber={false}
+                                disablePast={true}
+                                views={['day']}
+                                value={value}
+                                data-value={contactInfoState.deliveryDate}
+                                onChange={(newValue) =>
+                                    handleCalendar(newValue)
+                                }
+                                required
+                            />
+                        </form>
                     </div>
+
                     <div className="notes-info-block">
-                        <p className="contacts-page-heading text-primary-color text-HeadingSmall -mb-1 mt-10">
-                            Notes
-                        </p>
-                        <textarea
-                            aria-label="Notes"
-                            className="contacts-page-notes-txt-area pl-2 px-20 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
+                        <form
+                            className="contact-page-form"
+                            aria-label="Address Details"
+                        >
+                            <p className="contacts-page-heading text-primary-color text-HeadingSmall -mb-1 mt-10">
+                                Notes
+                            </p>
+                            <textarea
+                                aria-label="Notes"
+                                rows={3}
+                                className="contacts-page-notes-txt-area mt-2 pl-2 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
             focus:outline-none"
-                            value={contactInfoState.notes.value}
-                            placeholder="Something we should note...?"
-                            onChange={handleNotesChange}
-                        ></textarea>
+                                value={contactInfoState.notes.value}
+                                placeholder="Something we should note...?"
+                                onChange={handleNotesChange}
+                            ></textarea>
+                        </form>
                     </div>
                 </div>
             </div>

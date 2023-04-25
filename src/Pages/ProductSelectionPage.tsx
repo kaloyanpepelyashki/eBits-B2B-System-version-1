@@ -36,7 +36,7 @@ export default function ProductSelectionPage(
                 (product) => product.qty !== 0 && product.Price !== 0
             ).length !== 0
         ) {
-            navigate('/contact-info')
+            navigate('/Ebits-B2B-Portal/contact-info')
         }
         if (isKit && kitAmount <= 0) {
             window.alert('Kit Amount cannot be 0')

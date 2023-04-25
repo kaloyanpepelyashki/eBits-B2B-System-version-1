@@ -38,7 +38,7 @@ export default function LandingPage() {
     // }
 
     const handleTransfer = () => {
-        navigate('/select-products')
+        navigate('/Ebits-B2B-Portal/select-products')
     }
 
     return (

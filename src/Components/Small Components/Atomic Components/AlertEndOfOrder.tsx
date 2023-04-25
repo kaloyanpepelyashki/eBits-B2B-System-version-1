@@ -36,7 +36,9 @@ export const AlertDialogEndOrder: React.FC<AlertDialogEndOrderPropsType> = (
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={() => navigate('/outro')}>Okay</Button>
+                    <Button onClick={() => navigate('/Ebits-B2B-Portal/outro')}>
+                        Okay
+                    </Button>
                     <Button onClick={() => setOpenDialog(false)}>No</Button>
                 </DialogActions>
             </Dialog>

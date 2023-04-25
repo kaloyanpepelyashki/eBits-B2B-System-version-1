@@ -1,6 +1,6 @@
 export default function HeaderBar() {
     return (
-        <header aria-label="Header Bar" className="application-header-bar">
+        <header aria-label="Header Bar" className="application-header-bar shadow-lg">
             <div className="application-header-bar-inner bg-primary-color">
                 <a href="https://ebits.dk/">
                     <img

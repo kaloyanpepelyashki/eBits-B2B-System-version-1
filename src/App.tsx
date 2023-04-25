@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react'
 
 //Importing React-router elements and components
-import { Route, Routes } from 'react-router'
+import { Route, Routes, Navigate } from 'react-router'
 
 //Importing Context Components
 import { ShoppingCartProvider } from './Components/Context Components/ShoppingCartFuncContext'
@@ -58,9 +58,12 @@ function App() {
                 <ShoppingCartProvider>
                     <ContactInfoContProvider>
                         <Routes>
-                            <Route path="/" element={<LandingPage />} />
                             <Route
-                                path="/select-products"
+                                path="/Ebits-B2B-Portal/"
+                                element={<LandingPage />}
+                            />
+                            <Route
+                                path="/Ebits-B2B-Portal/select-products"
                                 element={
                                     <ProductSelectionPage
                                         productsList={productsList}
@@ -68,10 +71,17 @@ function App() {
                                 }
                             />
                             <Route
-                                path="/contact-info"
+                                path="/Ebits-B2B-Portal/contact-info"
                                 element={<ContactInfoPage />}
                             />
-                            <Route path="/outro" element={<OutroPage />} />
+                            <Route
+                                path="/Ebits-B2B-Portal/outro"
+                                element={<OutroPage />}
+                            />
+                            <Route
+                                path="*"
+                                element={<Navigate to="/Ebits-B2B-Portal/" />}
+                            />
                         </Routes>
                     </ContactInfoContProvider>
                 </ShoppingCartProvider>
