@@ -18,7 +18,7 @@ export type BasketProductObjectType = {
     Description: string
     Price: number
     ProductIndex: number
-    VariationID: string
+    VariationID: number
     VariationName: string
     qty: number
     varQty: number

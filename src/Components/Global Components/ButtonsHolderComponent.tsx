@@ -11,10 +11,8 @@ type ButtonsHolderPropsType = {
 }
 export default function ButtonsHolder(props: ButtonsHolderPropsType) {
     const navigate = useNavigate()
-
+    //Object destructuring from component's props
     const { handleTransfer, title, backDest, backTitle } = props
-
-    const name: string = 'Kons'
 
     return (
         <>

@@ -15,6 +15,7 @@ type ReceiptPropsType = {
 }
 
 export default function Receipt(props: ReceiptPropsType) {
+    //Object destructuring from the Shopping cart context
     const {
         cartProducts,
         funcs: { reduceProductAmount },

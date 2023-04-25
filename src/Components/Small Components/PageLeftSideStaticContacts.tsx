@@ -141,7 +141,11 @@ export default function PageLeftSideStaticContacts() {
                                     pattern="[0-9]*"
                                     className="contacts-page-input-field pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
               focus:outline-none"
-                                    value={contactInfoState.phone}
+                                    value={
+                                        contactInfoState.phone === 0
+                                            ? ''
+                                            : contactInfoState.phone
+                                    }
                                     placeholder="* Phone..."
                                     onChange={handlePhoneChange}
                                     onBlur={handlePhoneValidation}
@@ -201,13 +205,17 @@ export default function PageLeftSideStaticContacts() {
                                             ? '1px solid red'
                                             : ' ',
                                     }}
-                                    aria-label="Post number"
+                                    aria-label="Post code"
                                     inputMode="numeric"
                                     pattern="[0-9]*"
-                                    className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm text-sm focus:shadow-inner shadow-md
+                                    className="contacts-page-input-field-small pl-2 py-1.5 bg-white border-white border-slate-300 rounded-sm  text-TextXS  focus:shadow-inner shadow-md
             focus:outline-none"
-                                    value={contactInfoState.postNumber}
-                                    placeholder="* Post number"
+                                    value={
+                                        contactInfoState.postNumber === 0
+                                            ? ''
+                                            : contactInfoState.postNumber
+                                    }
+                                    placeholder="* Post code"
                                     onChange={handlePostNumberChange}
                                     onBlur={handlePostNumberValidation}
                                     required
@@ -220,7 +228,7 @@ export default function PageLeftSideStaticContacts() {
                                     }}
                                     aria-label="Town"
                                     type="text"
-                                    className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-red border-slate-300 rounded-sm text-sm shadow-md focus:shadow-inner
+                                    className="contacts-page-input-field-small ml-4 pl-2 py-1.5 bg-white border-red border-slate-300 rounded-sm  text-TextXS shadow-md focus:shadow-inner
             focus:outline-none"
                                     value={contactInfoState.town}
                                     placeholder="* Town"
@@ -275,7 +283,7 @@ export default function PageLeftSideStaticContacts() {
                             <textarea
                                 aria-label="Notes"
                                 rows={3}
-                                className="contacts-page-notes-txt-area mt-2 pl-2 py-2 bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
+                                className="contacts-page-notes-txt-area mt-2 pl-4 py-3 bg-white border-white border-slate-300 rounded-sm text-TextXS shadow-xl
             focus:outline-none"
                                 value={contactInfoState.notes.value}
                                 placeholder="Something we should note...?"

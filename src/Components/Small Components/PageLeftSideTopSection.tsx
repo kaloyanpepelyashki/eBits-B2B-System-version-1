@@ -5,6 +5,7 @@ import { useContext, ChangeEvent } from 'react'
 import { ShoppingCartFunc } from '../Context Components/ShoppingCartFuncContext'
 
 export default function PageLeftTopSection(props: any) {
+    //Object destructuring from the Shopping cart context
     const { isKit, setIsKit } = useContext(ShoppingCartFunc)
 
     const handleCheck = (e: ChangeEvent<HTMLInputElement>) => {

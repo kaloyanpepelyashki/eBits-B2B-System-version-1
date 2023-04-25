@@ -17,6 +17,7 @@ type BasketItemsDisplayPropsType = {
 export default function BasketProductsDisplay(
     props: BasketItemsDisplayPropsType
 ) {
+    //Object destructuring from component's props
     const { product, handleRemoveProduct } = props
 
     const DisplayNameVar = () => {

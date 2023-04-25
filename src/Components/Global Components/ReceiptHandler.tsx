@@ -9,6 +9,7 @@ import KitReceipt from './Receipt'
 import KitReceiptBottomSection from '../Small Components/KitBuyReceiptBottomSection'
 
 export default function ReceiptHandler() {
+    //Object destructuring from the Shopping cart context
     const { isKit } = useContext(ShoppingCartFunc)
     return (
         <>

@@ -13,6 +13,7 @@ type AlertComponentPropsType = {
     throwError: boolean
 }
 export default function AlertComponent(props: AlertComponentPropsType) {
+    //Object destructuring from component's props
     const { severity, title, body, setThrowError, throwError } = props
     return throwError ? (
         <div className="contact-info-page-error-alert absolute">

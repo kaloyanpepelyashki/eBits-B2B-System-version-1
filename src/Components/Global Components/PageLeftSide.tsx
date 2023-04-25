@@ -19,6 +19,7 @@ import BasketProductsDisplay from '../Small Components/BasketItemsDisplay'
 
 export default function PageLeftSide(props: any) {
     const [searchQuerry, setSearchQuerry] = useState(' ')
+    //Object destructuring from component's props
     const { productsList } = props
 
     //Getting the context data from the context component

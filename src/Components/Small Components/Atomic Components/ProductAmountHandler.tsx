@@ -13,8 +13,10 @@ type ProductAmountHandlerPropsType = {
 export default function ProductAmountHandler(
     props: ProductAmountHandlerPropsType
 ) {
+    //Object destructuring from component's props
     const { product } = props
 
+    //Object destructuring from the Shopping cart context
     const {
         funcs: {
             reduceProductAmount,

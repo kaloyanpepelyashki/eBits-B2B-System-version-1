@@ -132,7 +132,7 @@ export default React.memo(function ProductSearchBar({
                         className="product-search-bar-select product-search-bar text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round mr-6"
                     >
                         <option>Select Product</option>
-                        {variationAndPrice ? (
+                        {variationAndPrice && variationAndPrice.length > 0 ? (
                             variationAndPrice.map((variation) => (
                                 <option
                                     key={variation.VariationID}

@@ -20,6 +20,7 @@ type AlertDialogEndOrderPropsType = {
 export const AlertDialogEndOrder: React.FC<AlertDialogEndOrderPropsType> = (
     props: AlertDialogEndOrderPropsType
 ) => {
+    //Object destructuring from component's props
     const { openDialog, setOpenDialog } = props
 
     const navigate = useNavigate()

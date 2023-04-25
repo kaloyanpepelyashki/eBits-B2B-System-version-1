@@ -13,6 +13,7 @@ type ProductImageHandlerPropsType = {
 export default function ProductImageHandler(
     props: ProductImageHandlerPropsType
 ) {
+    //Object destructuring from component's props
     const { imageURL, fallBackURL, product } = props
 
     const [imgSrc, setImageSrc] = useState(imageURL)

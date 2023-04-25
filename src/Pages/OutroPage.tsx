@@ -8,6 +8,7 @@ import { ContactsInformationFunc } from '../Components/Context Components/Contac
 import ButtonsHolder from '../Components/Global Components/ButtonsHolderComponent'
 
 export default function OutroPage() {
+    //Object destructuring from the Contact info context
     const { contactInfoState } = useContext(ContactsInformationFunc)
 
     return (
