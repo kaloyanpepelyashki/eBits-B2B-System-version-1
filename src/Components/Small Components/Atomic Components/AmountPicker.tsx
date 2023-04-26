@@ -12,7 +12,7 @@ export default function AmountPicker() {
         <>
             <div className="page-left-side-top-section-amount-window-holder font-bold mb-2">
                 {isKit ? (
-                    <p className="font-bold text-primary-color ml-5 mt-2 cursor-default">
+                    <p className="kit-amount-text font-bold text-primary-color ml-5 mt-2 cursor-default">
                         Amount
                     </p>
                 ) : (

@@ -35,7 +35,7 @@ export default function ContactInfoPage() {
     //The state that controlls the content of the error alert
     const [errorAlertState, setErrorAlertState] = useState(1)
 
-    //TODO Examine if there are some problems with handling the form validation
+    //TODO Fix the form validation, the pop-up message must show only if the form is fully validated
     const handleTransfer = () => {
         handleNameValidation()
         handleLastNameValidation()
@@ -47,24 +47,22 @@ export default function ContactInfoPage() {
         handleTownValidation()
 
         if (
-            contactInfoState.name.length < 0 ||
-            contactInfoState.lastName.length < 0 ||
-            contactInfoState.email.length < 0 ||
-            contactInfoState.phone.toString.length < 0 ||
-            contactInfoState.street.length < 0 ||
-            contactInfoState.houseNumber.length < 0 ||
-            contactInfoState.postNumber.toString.length < 0 ||
-            contactInfoState.town.length < 0 ||
-            contactInfoState.deliveryDate.length < 0
+            contactInfoState.name.length <= 0 ||
+            contactInfoState.lastName.length <= 0 ||
+            contactInfoState.email.length <= 0 ||
+            contactInfoState.phone.toString().length <= 0 ||
+            contactInfoState.street.length <= 0 ||
+            contactInfoState.houseNumber.length <= 0 ||
+            contactInfoState.postNumber.toString().length <= 0 ||
+            contactInfoState.town.length <= 0 ||
+            contactInfoState.deliveryDate.length <= 0
         ) {
             setErrorAlertState(2)
             setThrowError(true)
-        }
-        if (formValidation.deliveryDateHasError) {
+        } else if (formValidation.deliveryDateHasError) {
             setErrorAlertState(3)
             setThrowError(true)
-        }
-        if (
+        } else if (
             (formValidation.emailFormattHasError &&
                 formValidation.emailHasError) ||
             (formValidation.phoneFormattHasError &&
@@ -72,8 +70,7 @@ export default function ContactInfoPage() {
         ) {
             setErrorAlertState(1)
             setThrowError(true)
-        }
-        if (
+        } else if (
             formValidation.nameHasError ||
             formValidation.lastNameHasError ||
             formValidation.emailFormattHasError ||
@@ -81,7 +78,7 @@ export default function ContactInfoPage() {
             formValidation.phoneFormattHasError ||
             formValidation.phoneHasError ||
             formValidation.streetHasError ||
-            formValidation.HouuseNumberHasError ||
+            formValidation.houseNumberHasError ||
             formValidation.postNumberHasError ||
             formValidation.townHasError
         ) {
@@ -95,23 +92,23 @@ export default function ContactInfoPage() {
             !formValidation.phoneFormattHasError &&
             !formValidation.phoneHasError &&
             !formValidation.streetHasError &&
-            !formValidation.HouuseNumberHasError &&
+            !formValidation.houseNumberHasError &&
             !formValidation.postNumberHasError &&
             !formValidation.townHasError &&
             contactInfoState.name.length > 0 &&
             contactInfoState.lastName.length > 0 &&
             contactInfoState.email.length > 0 &&
-            contactInfoState.phone.toString.length > 0 &&
+            contactInfoState.phone.toString().length > 0 &&
             contactInfoState.street.length > 0 &&
             contactInfoState.houseNumber.length > 0 &&
-            contactInfoState.postNumber.toString.length > 0 &&
+            contactInfoState.postNumber.toString().length > 0 &&
             contactInfoState.town.length > 0
         ) {
             setOpenDialog(true)
-        } else {
-            setOpenDialog(true)
         }
     }
+
+    console.log(contactInfoState)
 
     return (
         <>

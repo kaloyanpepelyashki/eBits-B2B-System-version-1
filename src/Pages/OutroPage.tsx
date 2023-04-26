@@ -19,7 +19,7 @@ export default function OutroPage() {
             >
                 <div
                     className="outro-page-inner-content
-         mx-auto max-w-7xl px-6 xl:px-8 2xl:px-0"
+        mx-auto max-w-7xl px-6 xl:px-8 2xl:px-0"
                 >
                     <h1
                         className="outro-page-outro-header text-TextXL text-txt-grey-color

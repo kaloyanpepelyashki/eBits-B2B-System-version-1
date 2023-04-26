@@ -11,7 +11,7 @@ export default function KitReceiptBottomSection() {
         <>
             <div>
                 <div className="flex justify-center -mt-100">
-                    <h1 className="text-total text-TextMid text-primary-color mt-2">
+                    <h1 className="text-total text-TextMid text-primary-color mt-2 cursor-default">
                         Total
                     </h1>
                 </div>

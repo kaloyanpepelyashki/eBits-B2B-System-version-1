@@ -1,5 +1,5 @@
 //Importin React hooks
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 //Importing Context Components
 import { ShoppingCartFunc } from '../../Context Components/ShoppingCartFuncContext'
@@ -13,6 +13,8 @@ type ProductAmountHandlerPropsType = {
 export default function ProductAmountHandler(
     props: ProductAmountHandlerPropsType
 ) {
+    const [directInputValue, setDirectInputValue] = useState(1)
+
     //Object destructuring from component's props
     const { product } = props
 
@@ -29,7 +31,11 @@ export default function ProductAmountHandler(
         product: BasketProductObjectType,
         amount: number
     ) => {
-        handleDirectAmountInput(product, amount)
+        setDirectInputValue(amount)
+        handleDirectAmountInput(
+            product,
+            amount >= 1 ? amount : 1 /*makes sure the smallest amount is 1 */
+        )
     }
 
     const handleReduceProductAmount = (product: BasketProductObjectType) => {
@@ -53,7 +59,8 @@ export default function ProductAmountHandler(
                 <input
                     type="number"
                     className="direct-amount-input-amounnt-handler w-12 mt-1 mx-2 "
-                    value={product.qty}
+                    value={directInputValue == 0 ? '' : directInputValue}
+                    defaultValue={1}
                     onChange={(e) =>
                         handleUserDirectInput(product, Number(e.target.value))
                     }

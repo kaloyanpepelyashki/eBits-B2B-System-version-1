@@ -57,6 +57,9 @@ export const ContactInfoContProvider: React.FC<
         }
     }
 
+    const todayDate: Date = new Date()
+    todayDate.setDate(todayDate.getDate() + 14)
+
     const formInitialState: FormInitialState = {
         name: '',
         lastName: '',
@@ -170,9 +173,6 @@ export const ContactInfoContProvider: React.FC<
         formValidityReducer,
         formValidationState
     )
-
-    const todayDate = new Date()
-    todayDate.setDate(todayDate.getDate() + 14)
 
     const [value, setValue] = useState(dayjs(todayDate))
 

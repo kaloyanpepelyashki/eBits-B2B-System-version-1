@@ -55,7 +55,7 @@ export default function Receipt(props: ReceiptPropsType) {
                     style={{ height: isKit ? '46%' : '90%' }}
                 >
                     <h1 className="text-cardText text-primary-color mt-4 mr-40 mb-3 font-bold cursor-default">
-                        Products:
+                        Products :
                     </h1>
 
                     <div

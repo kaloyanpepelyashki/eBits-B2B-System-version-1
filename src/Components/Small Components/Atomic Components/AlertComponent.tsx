@@ -1,9 +1,5 @@
-//Import React hooks
-import { useState } from 'react'
-
 import Alert, { AlertColor } from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
-import Button from '@mui/material/Button'
 
 type AlertComponentPropsType = {
     severity: AlertColor

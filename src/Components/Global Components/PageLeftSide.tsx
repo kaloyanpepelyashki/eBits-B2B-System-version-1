@@ -71,7 +71,7 @@ export default function PageLeftSide(props: any) {
                     <div className="page-left-side-search-bar-icon-wrapper">
                         <input
                             aria-label="Search bar"
-                            className="page-left-side-search-bar block px-8 py-2 pr-80 bg-white border-white  rounded-sm text-sm shadow-md
+                            className="page-left-side-search-bar block px-8 py-2 pr-40 bg-white border-white  rounded-sm text-sm shadow-md
                 focus:outline-none"
                             type="text"
                             placeholder="Product name here..."
@@ -98,7 +98,7 @@ export default function PageLeftSide(props: any) {
                 </div>
                 <div className="line line-2"></div>
                 <div className="page-left-side-basket-section">
-                    <h2 className="text-cardText font-bold text-primary-color mb-4">
+                    <h2 className="text-cardText font-bold text-primary-color mb-4 cursor-default">
                         Your products :
                     </h2>
 
