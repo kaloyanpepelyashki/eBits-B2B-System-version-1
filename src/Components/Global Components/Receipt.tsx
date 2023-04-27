@@ -62,18 +62,26 @@ export default function Receipt(props: ReceiptPropsType) {
                         className="scroll-section sm:max-h-80 md:max-h-85 lg:max-h-100 xl:max-h-104 overflow-y-auto"
                         style={{ height: isKit ? '90%' : '90%' }}
                     >
-                        {cartProducts.map((product) =>
-                            product.qty && product.varQty !== 0 ? (
-                                <ProductDisplayReceipt
-                                    key={product.productBaksetUnqKey}
-                                    product={product}
-                                    handleReduceProductAmount={
-                                        handleReduceProductAmount
-                                    }
-                                />
-                            ) : (
-                                ''
+                        {cartProducts.filter(
+                            (product) => product.qty > 0 && product.varQty > 0
+                        ).length != 0 ? (
+                            cartProducts.map((product) =>
+                                product.qty && product.varQty !== 0 ? (
+                                    <ProductDisplayReceipt
+                                        key={product.productBaksetUnqKey}
+                                        product={product}
+                                        handleReduceProductAmount={
+                                            handleReduceProductAmount
+                                        }
+                                    />
+                                ) : (
+                                    ''
+                                )
                             )
+                        ) : (
+                            <h2 className="text-TextSmall text-txt-grey-color-faded font-bold mt-2 cursor-default">
+                                Nothing to show
+                            </h2>
                         )}
                     </div>
 

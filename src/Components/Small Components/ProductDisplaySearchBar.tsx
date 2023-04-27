@@ -7,6 +7,7 @@ import { faCircleQuestion } from '@fortawesome/free-regular-svg-icons'
 
 //Importing types and interfaces
 import { RawProductObjectType } from '../../Types/ShoppingCartTypes'
+import PopOverComponent from './Atomic Components/PopOverComponent'
 
 type ProductSearchBarProps = {
     product: RawProductObjectType
@@ -31,6 +32,20 @@ export default React.memo(function ProductSearchBar({
     >([])
 
     const [revealDescription, setRevealDescription] = useState(false)
+
+    const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+        null
+    )
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget)
+    }
+
+    const handleClose = () => {
+        setAnchorEl(null)
+    }
+
+    const open = Boolean(anchorEl)
 
     //Fetching the variations from the server
     //////
@@ -120,15 +135,23 @@ export default React.memo(function ProductSearchBar({
         }
     }
 
-    console.log(productWithVar)
     return (
         <>
+            <PopOverComponent
+                openPopOver={open}
+                title={product.ProductName}
+                body={product.Description}
+                severity="Info"
+                handleClose={handleClose}
+                anchorEl={anchorEl}
+            />
             <div className="product-search-bar-outter-wrapper relative">
                 <div className="product-search-bar-main-container">
                     <select
                         onChange={(e) => {
                             handleVariationChoice(e)
                         }}
+                        onBlur={() => handleChoiceValidation()}
                         className="product-search-bar-select product-search-bar text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round mr-6"
                     >
                         <option>Select Product</option>
@@ -175,18 +198,21 @@ export default React.memo(function ProductSearchBar({
                     <div className="flex row">
                         <FontAwesomeIcon
                             className="product-search-bar-info-icon "
-                            onMouseEnter={() => setRevealDescription(true)}
-                            onMouseLeave={() =>
-                                setTimeout(
-                                    () => setRevealDescription(false),
-                                    2500
-                                )
-                            }
+                            //! The events for triggering the Pop-up message
+                            // onMouseEnter={() => setRevealDescription(true)}
+                            // onMouseLeave={() =>
+                            //     setTimeout(
+                            //         () => setRevealDescription(false),
+                            //         2500
+                            //     )
+                            // }
+
                             icon={faCircleQuestion}
+                            onClick={(e) => handleClick(e)}
                         />
                         {revealDescription ? (
                             <div
-                                className="product-search-bar-description-pop-up absolute"
+                                className="product-search-bar-description-pop-up shadow-md absolute"
                                 onMouseEnter={() => setRevealDescription(true)}
                                 onMouseLeave={() => setRevealDescription(false)}
                             >

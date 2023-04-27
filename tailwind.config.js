@@ -9,6 +9,7 @@ export default {
         colors: {
             'primary-color': '#551C50',
             'txt-grey-color': '#959595',
+            'txt-grey-color-faded': '#ababab7b',
             'txt-black-color': '#000000',
             'txt-white-color': '#FFFFFF',
             'txt-red': 'red',

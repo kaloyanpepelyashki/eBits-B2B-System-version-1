@@ -104,21 +104,30 @@ export default function PageLeftSide(props: any) {
 
                     <div className="page-left-side-bottom-section">
                         <div className="basket-scroll-section">
-                            {cartProducts.map((product) =>
-                                product.qty > 0 && product.varQty > 0 ? (
-                                    <BasketProductsDisplay
-                                        key={product.productBaksetUnqKey}
-                                        product={product}
-                                        handleRemoveProduct={
-                                            handleRemoveProduct
-                                        }
-                                        handleUserDirectInput={
-                                            handleUserDirectInput
-                                        }
-                                    />
-                                ) : (
-                                    ''
+                            {cartProducts.filter(
+                                (product) =>
+                                    product.qty > 0 && product.varQty > 0
+                            ).length != 0 ? (
+                                cartProducts.map((product) =>
+                                    product.qty > 0 && product.varQty > 0 ? (
+                                        <BasketProductsDisplay
+                                            key={product.productBaksetUnqKey}
+                                            product={product}
+                                            handleRemoveProduct={
+                                                handleRemoveProduct
+                                            }
+                                            handleUserDirectInput={
+                                                handleUserDirectInput
+                                            }
+                                        />
+                                    ) : (
+                                        ''
+                                    )
                                 )
+                            ) : (
+                                <h2 className="text-TextMidSmall text-txt-grey-color-faded font-bold mt-5 cursor-default">
+                                    Nothing to show yet
+                                </h2>
                             )}
                         </div>
                     </div>

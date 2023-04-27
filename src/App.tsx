@@ -13,7 +13,6 @@ import { ProductListModel } from './Types/ShoppingCartTypes'
 //Importing MUI elements, dependencies and components
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import * as dayjs from 'dayjs'
 
 import './App.css'
 import LandingPage from './Pages/LandingPage'

@@ -13,8 +13,6 @@ type ProductAmountHandlerPropsType = {
 export default function ProductAmountHandler(
     props: ProductAmountHandlerPropsType
 ) {
-    const [directInputValue, setDirectInputValue] = useState(1)
-
     //Object destructuring from component's props
     const { product } = props
 
@@ -26,6 +24,8 @@ export default function ProductAmountHandler(
             handleDirectAmountInput,
         },
     } = useContext(ShoppingCartFunc)
+
+    const [directInputValue, setDirectInputValue] = useState(product.qty)
 
     const handleUserDirectInput = (
         product: BasketProductObjectType,
@@ -59,7 +59,7 @@ export default function ProductAmountHandler(
                 <input
                     type="number"
                     className="direct-amount-input-amounnt-handler w-12 mt-1 mx-2 "
-                    value={directInputValue == 0 ? '' : directInputValue}
+                    value={product.qty}
                     defaultValue={1}
                     onChange={(e) =>
                         handleUserDirectInput(product, Number(e.target.value))
