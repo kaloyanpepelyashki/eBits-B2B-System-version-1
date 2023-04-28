@@ -144,6 +144,7 @@ export default React.memo(function ProductSearchBar({
                 severity="Info"
                 handleClose={handleClose}
                 anchorEl={anchorEl}
+                product={product}
             />
             <div className="product-search-bar-outter-wrapper relative">
                 <div className="product-search-bar-main-container">

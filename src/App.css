@@ -350,7 +350,7 @@ input[type='number']::-moz-outer-spin-button {
 
 .MuiPopover-paper {
     width: 30%;
-    height: 40%;
+    height: 44%;
 }
 .popover-content-wrapper {
     width: 100%;
@@ -372,9 +372,16 @@ input[type='number']::-moz-outer-spin-button {
 .popover-main-content {
     width: 98%;
     height: 70%;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-    padding: 20px 23px 5px 23px;
+    padding: 20px 23px 5px 28px;
     margin-right: 5px;
+}
+
+.product-description-product-image {
+    width: 30%;
+    align-self: center;
 }
 
 .popover-main-content::-webkit-scrollbar {
