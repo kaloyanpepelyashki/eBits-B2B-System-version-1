@@ -1,5 +1,5 @@
 //Importing React hooks
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar'
 import dayjs, { Dayjs } from 'dayjs'
@@ -40,10 +40,17 @@ export default function PageLeftSideStaticContacts() {
         setValue,
     } = useContext(ContactsInformationFunc)
 
-    const handleCalendar = (newValue: Dayjs | null) => {
+  const handleCalendar = (newValue: Dayjs | null) => {
         setValue(newValue)
         handleDeliveryDateChange()
     }
+
+    //The useEffect hook is used to set the default value of delivery date, when the component is loaded.
+    useEffect(() => {
+        handleCalendar(dayjs(todayDate))
+    }, [])
+
+  
     return (
         <>
             <div
@@ -259,7 +266,6 @@ export default function PageLeftSideStaticContacts() {
                                 aria-label="Date input"
                                 minDate={dayjs(todayDate)}
                                 displayWeekNumber={true}
-                                displayYearNumber={false}
                                 disablePast={true}
                                 views={['day']}
                                 value={value}
@@ -267,7 +273,6 @@ export default function PageLeftSideStaticContacts() {
                                 onChange={(newValue) =>
                                     handleCalendar(newValue)
                                 }
-                                required
                             />
                         </form>
                     </div>

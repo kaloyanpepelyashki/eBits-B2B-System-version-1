@@ -216,10 +216,10 @@ export const ContactInfoContProvider: React.FC<
             dispatch({ type: 'UPDATE_NOTES', payload: e.target.value })
         },
 
-        handleDeliveryDateChange: (e: ChangeEvent<HTMLInputElement>) => {
+        handleDeliveryDateChange: () => {
             dispatch({
                 type: 'UPDATE_DELIVERYDATE',
-                payload: value.toString(),
+                payload: value.toString(), 
             })
         },
     }
