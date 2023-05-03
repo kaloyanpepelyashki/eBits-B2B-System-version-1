@@ -116,9 +116,6 @@ export default function PageLeftSide(props: any) {
                                             handleRemoveProduct={
                                                 handleRemoveProduct
                                             }
-                                            handleUserDirectInput={
-                                                handleUserDirectInput
-                                            }
                                         />
                                     ) : (
                                         ''

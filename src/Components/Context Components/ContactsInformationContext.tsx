@@ -219,7 +219,7 @@ export const ContactInfoContProvider: React.FC<
         handleDeliveryDateChange: () => {
             dispatch({
                 type: 'UPDATE_DELIVERYDATE',
-                payload: value.toString(), 
+                payload: value.toString(),
             })
         },
     }

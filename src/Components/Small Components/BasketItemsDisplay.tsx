@@ -12,6 +12,7 @@ import ProductAmountHandler from './Atomic Components/ProductAmountHandler'
 type BasketItemsDisplayPropsType = {
     product: BasketProductObjectType
     handleRemoveProduct: any
+    
 }
 
 export default function BasketProductsDisplay(

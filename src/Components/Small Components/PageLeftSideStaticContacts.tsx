@@ -40,7 +40,7 @@ export default function PageLeftSideStaticContacts() {
         setValue,
     } = useContext(ContactsInformationFunc)
 
-  const handleCalendar = (newValue: Dayjs | null) => {
+    const handleCalendar = (newValue: Dayjs | null) => {
         setValue(newValue)
         handleDeliveryDateChange()
     }
@@ -50,7 +50,6 @@ export default function PageLeftSideStaticContacts() {
         handleCalendar(dayjs(todayDate))
     }, [])
 
-  
     return (
         <>
             <div
@@ -74,7 +73,7 @@ export default function PageLeftSideStaticContacts() {
                                 style={{
                                     border: formValidation.nameHasError
                                         ? '1px solid red'
-                                        : ' ',
+                                        : '',
                                 }}
                                 aria-label="Name"
                                 type="text"
@@ -90,7 +89,7 @@ export default function PageLeftSideStaticContacts() {
                                 style={{
                                     border: formValidation.lastNameHasError
                                         ? '1px solid red'
-                                        : ' ',
+                                        : '',
                                 }}
                                 aria-label="Last Name"
                                 type="text"
@@ -115,7 +114,7 @@ export default function PageLeftSideStaticContacts() {
                                     style={{
                                         border: formValidation.emailHasError
                                             ? '1px solid red'
-                                            : ' ',
+                                            : '',
                                     }}
                                     aria-label="Email"
                                     type="email"
@@ -135,13 +134,13 @@ export default function PageLeftSideStaticContacts() {
                                         Please provide a valid phone number{' '}
                                     </p>
                                 ) : (
-                                    ' '
+                                    ''
                                 )}
                                 <input
                                     style={{
                                         border: formValidation.phoneHasError
                                             ? '1px solid red'
-                                            : ' ',
+                                            : '',
                                     }}
                                     aria-label="Phone"
                                     inputMode="numeric"
@@ -177,7 +176,7 @@ export default function PageLeftSideStaticContacts() {
                                 style={{
                                     border: formValidation.streetHasError
                                         ? '1px solid red'
-                                        : ' ',
+                                        : '',
                                 }}
                                 aria-label="Street address"
                                 type="text"
@@ -193,7 +192,7 @@ export default function PageLeftSideStaticContacts() {
                                 style={{
                                     border: formValidation.houseNumberHasError
                                         ? '1px solid red'
-                                        : ' ',
+                                        : '',
                                 }}
                                 aria-label="House number"
                                 type="text"
@@ -210,7 +209,7 @@ export default function PageLeftSideStaticContacts() {
                                     style={{
                                         border: formValidation.postNumberHasError
                                             ? '1px solid red'
-                                            : ' ',
+                                            : '',
                                     }}
                                     aria-label="Post code"
                                     inputMode="numeric"
@@ -231,7 +230,7 @@ export default function PageLeftSideStaticContacts() {
                                     style={{
                                         border: formValidation.townHasError
                                             ? '1px solid red'
-                                            : ' ',
+                                            : '',
                                     }}
                                     aria-label="Town"
                                     type="text"
@@ -256,7 +255,7 @@ export default function PageLeftSideStaticContacts() {
                     </p>
                     <div
                         className="delivery-date-info-block bg-white border-white border-slate-300 rounded-sm text-sm shadow-xl
-          focus:outline-none"
+        focus:outline-none"
                     >
                         <form
                             className="contact-page-form"

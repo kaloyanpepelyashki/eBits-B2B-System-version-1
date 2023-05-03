@@ -31,7 +31,6 @@ export default React.memo(function ProductSearchBar({
         RawProductObjectType[]
     >([])
 
-    
     //THE LOGIC FOR OPPENING THE DESCRIPTION POP-OVER
 
     //The state variable that manages whether the Pop-over is open or not
@@ -77,7 +76,9 @@ export default React.memo(function ProductSearchBar({
     ////
     //////
 
-    console.log(variationAndPrice)
+
+    //! OLD LOGIC FOR HANDLING PRODUCT AND VARIATION CHOICE
+    //! to remain until the new logic is proven to work
     //Sets the variable that is to hold the variation information
     // let value: RawProductObjectType = {
     //     ProductName: '',
@@ -139,7 +140,43 @@ export default React.memo(function ProductSearchBar({
     //     }
     // }
 
-    
+    const handleVariationChoice = (e: any) => {
+        let value: RawProductObjectType = {
+            ProductName: product.ProductName,
+            ProductIndex: product.ProductIndex,
+            VariationName: e.target.value,
+            VariationID:
+                e.target.options[e.target.selectedIndex].getAttribute(
+                    'data-variationid'
+                ),
+            Price: +e.target.options[e.target.selectedIndex].getAttribute(
+                'data-variationprice'
+            ),
+            Description: product.Description,
+        }
+
+        if (
+            !value.VariationName &&
+            (!value.Price || value.Price == 0) &&
+            value.VariationName !== 'select product'
+        ) {
+            //If there is no selected variation and there are variations in the list, it pushes a window alert
+            window.alert('Please selct a variation')
+        }
+        if (value.VariationName.toLowerCase() == 'select product') {
+            window.alert('Please select a valid choice')
+        }
+        if (value.Price <= 0) {
+            return
+        } else if (
+            value.VariationName &&
+            value.VariationName.toLowerCase() !== 'select product' &&
+            value.Price > 0
+        ) {
+            addProduct(value)
+        }
+    }
+
     return (
         <>
             <PopOverComponent
@@ -157,7 +194,6 @@ export default React.memo(function ProductSearchBar({
                         onChange={(e) => {
                             handleVariationChoice(e)
                         }}
-                        
                         className="product-search-bar-select product-search-bar text-VariationTitle bg-selector-color text-txt-white-color round-sm border-round mr-6"
                     >
                         <option>Select Product</option>
@@ -188,9 +224,6 @@ export default React.memo(function ProductSearchBar({
                     </select>
                     <div
                         className="product-searchbar-clickable-space"
-                        onClick={() => {
-                            handleChoiceValidation()
-                        }}
                     >
                         <img
                             className="w-9 h-9 mr-6 "
