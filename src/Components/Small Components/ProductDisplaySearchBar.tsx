@@ -76,7 +76,6 @@ export default React.memo(function ProductSearchBar({
     ////
     //////
 
-
     //! OLD LOGIC FOR HANDLING PRODUCT AND VARIATION CHOICE
     //! to remain until the new logic is proven to work
     //Sets the variable that is to hold the variation information
@@ -222,9 +221,7 @@ export default React.memo(function ProductSearchBar({
                             </option>
                         )}
                     </select>
-                    <div
-                        className="product-searchbar-clickable-space"
-                    >
+                    <div className="product-searchbar-clickable-space">
                         <img
                             className="w-9 h-9 mr-6 "
                             src={`http://65.109.137.46:5000/img/${product.ProductIndex}_0.jpg`}

@@ -22,6 +22,7 @@ export interface ContactInfoState {
     town: string
     deliveryDate: string
     notes: string
+    inVoiceDate: string
 }
 
 export interface FormInitialState {
@@ -35,6 +36,7 @@ export interface FormInitialState {
     town: string
     deliveryDate: string
     notes: string
+    inVoiceDate: string
 }
 export interface FormValidationState {
     nameHasError: boolean

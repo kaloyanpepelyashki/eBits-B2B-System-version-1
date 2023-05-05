@@ -58,6 +58,11 @@ export const ContactInfoContProvider: React.FC<
     }
 
     const todayDate: Date = new Date()
+
+    const inVoiceDate = `${todayDate.getDate()}/${
+        todayDate.getMonth() + 1
+    }/${todayDate.getFullYear()}`
+
     todayDate.setDate(todayDate.getDate() + 14)
 
     const formInitialState: FormInitialState = {
@@ -71,6 +76,7 @@ export const ContactInfoContProvider: React.FC<
         town: '',
         deliveryDate: '',
         notes: '',
+        inVoiceDate: inVoiceDate.toString(),
     }
 
     const formValidationState: FormValidationState = {

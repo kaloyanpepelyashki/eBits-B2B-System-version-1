@@ -935,6 +935,13 @@ input[type='number']::-moz-outer-spin-button {
     }
 }
 
+/** <--- --- | ALERT DIALOG END OF ORDER COMPONENT STYLING | --- ---> */
+
+.end-of-order-header {
+    height: 50px;
+    width: 100%;
+}
+
 /***  <==== === ! | OUTRO PAGE | ! === ====>  ***/
 
 .outro-page-content-wrapper {
