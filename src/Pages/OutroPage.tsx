@@ -15,57 +15,6 @@ export default function OutroPage() {
     //Object destructuring from the Contact info context
     const { contactInfoState } = useContext(ContactsInformationFunc)
 
-    // //Object destructuring from the Shopping cart context
-    // const { cartProducts, isKit, kitAmount } = useContext(ShoppingCartFunc)
-
-    // const invoiceBody = {
-    //     invoiceProducts: cartProducts,
-    //     isKit: isKit,
-    //     kitAmount: kitAmount
-    // }
-
-    // const contactInfoBody = {
-    //     customerName: contactInfoState.name,
-    //     customerLastName: contactInfoState.lastName,
-    //     customerEmail: contactInfoState.email,
-    //     customerPhone: contactInfoState.phone,
-    //     customerStreet: contactInfoState.street,
-    //     customerHouseNumber: contactInfoState.houseNumber,
-    //     customerPostNumber: contactInfoState.postNumber,
-    //     customerTown: contactInfoState.town,
-    //     customerDeliveryDate: contactInfoState.deliveryDate,
-    //     customerNotes: contactInfoState.notes,
-    //     invoiceDate: contactInfoState.inVoiceDate,
-    //     invoiceUniqueKey: `${contactInfoState.inVoiceDate}${contactInfoState.postNumber}${contactInfoState.deliveryDate.replace(/\s/g, "").replace(/:/g, "")}`
-    // }
-
-    // console.log(contactInfoBody)
-    // console.log(invoiceBody)
-
-    // useEffect(() => {
-    //     const sendQuery = () => {
-    //         axios
-    //             //Makes a post request to the mailer server
-    //             .post(
-    //                 'http://localhost:5000/queryReceiver',
-    //                 {
-    //                     contactInfoBody: contactInfoBody,
-    //                     invoiceBody: invoiceBody,
-
-    //                 },
-    //                 { headers: { 'Content-Type': 'application/json' } }
-    //             )
-    //             .then((response) => {
-    //                 console.log(response)
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err)
-    //             })
-    //     }
-
-    //     sendQuery()
-    // }, [])
-
     return (
         <>
             <main
@@ -89,7 +38,8 @@ export default function OutroPage() {
                         </b>
                     </p>
                 </div>
-                <ButtonsHolder />
+                <a className="outro-page-last-btn shadow-lg"
+                href="https://ebits.dk/">To eBits home page</a>
             </main>
         </>
     )

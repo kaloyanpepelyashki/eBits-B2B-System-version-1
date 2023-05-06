@@ -79,7 +79,7 @@ img {
 }
 .application-header-bar-company-logo {
     width: 130px;
-    height: 58px;
+    height: 62px;
 }
 .application-header-bar-empty-side {
     width: 100%;
@@ -951,4 +951,18 @@ input[type='number']::-moz-outer-spin-button {
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+.outro-page-last-btn {
+    position: absolute;
+    bottom: 80px;
+    width: 25%;
+    height: 7%;
+    background-color: #df9c1e;
+    color: #ffffff;
+    font-size: 19pt;
+    padding: 8px 13px;
+    transition: all 0.5s;
+}
+.outro-page-last-btn:hover {
+    transform: scale(1.06);
 }

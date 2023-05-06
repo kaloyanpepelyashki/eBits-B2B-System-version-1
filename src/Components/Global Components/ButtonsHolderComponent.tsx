@@ -29,7 +29,7 @@ export default function ButtonsHolder(props: ButtonsHolderPropsType) {
                     </button>
                     <button
                         aria-label="Back"
-                        className="btn-holder-next bg-primary-color rounded-sm text-GlobalBtnsTxt font-normal mx-5"
+                        className="btn-holder-next bg-primary-color rounded-sm text-GlobalBtnsTxt font-normal mx-5 shadow-lg"
                         onClick={handleTransfer}
                     >
                         {title ? title : 'Next'}
